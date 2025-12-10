@@ -6,7 +6,7 @@
 #include <map>
 using namespace std;
 
-
+void display_range (map<string, int>& , int, int);
 
 int main (){
     map<string, int> airport;
@@ -64,27 +64,11 @@ int main (){
     cout << endl;
 
     //Milestone 3: This code block will display only the airports that fall within two different ranges:
-    int range_start = 1, range_end = 8;
+    
+    display_range(airport, 1, 8);
 
-    cout << "Airports within traffic range [" << range_start << ", " << range_end << "]:\n";
-    for(auto traffic : airport){
-        if (traffic.second >= range_start && traffic.second <= range_end){
-            cout << "Airport Code: " << traffic.first << ": # visits: " << traffic.second << endl;
-        }
-
-    } 
-    cout << endl;
-
-    range_start = 10; range_end = 15;
-
-    cout << "Airports within traffic range [" << range_start << ", " << range_end << "]:\n";
-    for(auto traffic : airport){
-        if (traffic.second >= range_start && traffic.second <= range_end){
-            cout << "Airport Code: " << traffic.first << ": # visits: " << traffic.second << endl;
-        }
-
-    }
-    cout << endl;
+    display_range(airport, 10, 15);
+   
 
     //Milestone 4: final polish
     cout << "Program Ending...\n";
@@ -94,4 +78,15 @@ int main (){
 
 
     return 1;
+}
+
+void display_range (map<string, int> & airport, int range_start, int range_end){
+    cout << "Airports within traffic range [" << range_start << ", " << range_end << "]:\n";
+    for(auto traffic : airport){
+        if (traffic.second >= range_start && traffic.second <= range_end){
+            cout << "Airport Code: " << traffic.first << ": # visits: " << traffic.second << endl;
+        }
+
+    }
+    cout << endl;
 }
