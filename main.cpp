@@ -6,7 +6,7 @@
 #include <map>
 using namespace std;
 
-const bool debug = true;
+const bool debug = false;
 
 int main (){
     map<string, int> airport;
@@ -76,6 +76,7 @@ int main (){
             cout << "Airport Code: " << busiest.first << ": # visits: " << busiest.second << endl;
         }
     }
+    cout << endl;
 
 
 
