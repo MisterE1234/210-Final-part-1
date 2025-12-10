@@ -13,7 +13,7 @@ int main (){
     string tempStr;
     ifstream iFile;
 
-    //This code block opens the file and reads the data to the aiport map and displays it.
+    //Milestone 1: This code block opens the file and reads the data to the aiport map and displays it.
     iFile.open("210-final-1-FA25.txt");
 
     if (!iFile){
@@ -59,7 +59,7 @@ int main (){
     }
     cout << endl;
 
-    //This code block will only display the airports with the highest traffic:
+    //Milestone 2:This code block will only display the airports with the highest traffic:
     int busiest_amount = 0;
     for (auto highest: airport){
         if(busiest_amount < highest.second){
@@ -78,6 +78,28 @@ int main (){
     }
     cout << endl;
 
+    //Milestone 3: This code block will display only the airports that fall within two different ranges:
+    int range_start = 0, range_end = 8;
+
+    cout << "Airports within traffic range [" << range_start << ", " << range_end << "]:\n";
+    for(auto traffic : airport){
+        if (traffic.second > range_start && traffic.second < range_end){
+            cout << "Airport Code: " << traffic.first << ": # visits: " << traffic.second << endl;
+        }
+
+    } 
+    cout << endl;
+
+    range_start = 10; range_end = 15;
+
+    cout << "Airports within traffic range [" << range_start << ", " << range_end << "]:\n";
+    for(auto traffic : airport){
+        if (traffic.second > range_start && traffic.second < range_end){
+            cout << "Airport Code: " << traffic.first << ": # visits: " << traffic.second << endl;
+        }
+
+    }
+    cout << endl;
 
 
 
