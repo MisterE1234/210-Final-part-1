@@ -6,7 +6,7 @@
 #include <map>
 using namespace std;
 
-const bool debug = false;
+
 
 int main (){
     map<string, int> airport;
@@ -21,33 +21,20 @@ int main (){
         return -1;
     }
 
-    if(debug){
-        cout << "File Opened!\n";
-    }
-
     while (!iFile.eof()){
     iFile >> tempStr;
 
-    if(debug){
-        cout << tempStr << endl;
-    }
     auto search = airport.find(tempStr);
 
     if(search != airport.end()){
         search->second++;
-        if(debug){
-            cout << "Increasing " << tempStr << " count\n";
-        }
+        
     }
     else{
         airport[tempStr] = {1};
-        if(debug){
-            cout << "New Airport: " << tempStr << endl;
-        }
+        
     }
-    if(debug){
-        cout << "end of the while loop\n";
-    }
+    
 
 
     }
@@ -64,9 +51,7 @@ int main (){
     for (auto highest: airport){
         if(busiest_amount < highest.second){
             busiest_amount = highest.second;
-            if(debug){
-                cout << "New High:" << busiest_amount << endl;
-            }
+            
         }
     }
 
@@ -100,6 +85,11 @@ int main (){
 
     }
     cout << endl;
+
+    //Milestone 4: final polish
+    cout << "Program Ending...\n";
+    airport.clear();
+
 
 
 
