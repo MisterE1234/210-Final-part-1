@@ -79,11 +79,11 @@ int main (){
     cout << endl;
 
     //Milestone 3: This code block will display only the airports that fall within two different ranges:
-    int range_start = 0, range_end = 8;
+    int range_start = 1, range_end = 8;
 
     cout << "Airports within traffic range [" << range_start << ", " << range_end << "]:\n";
     for(auto traffic : airport){
-        if (traffic.second > range_start && traffic.second < range_end){
+        if (traffic.second >= range_start && traffic.second <= range_end){
             cout << "Airport Code: " << traffic.first << ": # visits: " << traffic.second << endl;
         }
 
@@ -94,7 +94,7 @@ int main (){
 
     cout << "Airports within traffic range [" << range_start << ", " << range_end << "]:\n";
     for(auto traffic : airport){
-        if (traffic.second > range_start && traffic.second < range_end){
+        if (traffic.second >= range_start && traffic.second <= range_end){
             cout << "Airport Code: " << traffic.first << ": # visits: " << traffic.second << endl;
         }
 
