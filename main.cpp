@@ -6,7 +6,7 @@
 #include <map>
 using namespace std;
 
-const bool debug = false;
+const bool debug = true;
 
 int main (){
     map<string, int> airport;
@@ -55,9 +55,27 @@ int main (){
 
     cout << "Airport Visitation Data:\n";
     for(auto data : airport){
-        cout << "Airport Code: " << data.first << ": number of visits: " << data.second << endl;
+        cout << "Airport Code: " << data.first << ": # visits: " << data.second << endl;
     }
     cout << endl;
+
+    //This code block will only display the airports with the highest traffic:
+    int busiest_amount = 0;
+    for (auto highest: airport){
+        if(busiest_amount < highest.second){
+            busiest_amount = highest.second;
+            if(debug){
+                cout << "New High:" << busiest_amount << endl;
+            }
+        }
+    }
+
+    cout << "Busiest Airport(s): count: " << busiest_amount << ":\n";
+    for (auto busiest : airport){
+        if (busiest.second == busiest_amount){
+            cout << "Airport Code: " << busiest.first << ": # visits: " << busiest.second << endl;
+        }
+    }
 
 
 
